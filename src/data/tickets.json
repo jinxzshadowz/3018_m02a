@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Login button not working",
+    "description": "Users cannot log in using the main button.",
+    "priority": "high",
+    "status": "open",
+    "createdAt": "2025-12-10T15:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "Profile picture upload failing",
+    "description": "Upload returns a 500 error.",
+    "priority": "low",
+    "status": "open",
+    "createdAt": "2025-12-12T15:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Dashboard loading slowly",
+    "description": "Dashboard takes 10 seconds to load.",
+    "priority": "medium",
+    "status": "open",
+    "createdAt": "2025-12-11T15:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "title": "Password reset email delayed",
+    "description": "Email takes 20 minutes to arrive.",
+    "priority": "high",
+    "status": "open",
+    "createdAt": "2025-12-12T15:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "title": "Export to PDF not working",
+    "description": "Export feature crashes the app.",
+    "priority": "high",
+    "status": "open",
+    "createdAt": "2025-12-08T15:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "title": "Login page not loading",
+    "description": "Page stuck on white screen.",
+    "priority": "critical",
+    "status": "open",
+    "createdAt": "2025-12-11T15:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "title": "Dark mode toggle broken",
+    "description": "Toggle does nothing.",
+    "priority": "medium",
+    "status": "resolved",
+    "createdAt": "2025-12-07T15:00:00.000Z"
+  }
+]
