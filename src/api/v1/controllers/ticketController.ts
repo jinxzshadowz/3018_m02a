@@ -1,5 +1,9 @@
 import { Request, Response } from "express";
-import { getAllTickets, getTicketById } from "../services/ticketService";
+import { 
+    getAllTickets,
+    getTicketById,
+    getTicketsByStatus
+} from "../services/ticketService";
 
 export const getTickets = (req: Request, res: Response) => {
     const tickets = getAllTickets();
@@ -15,4 +19,16 @@ export const getTicket = (req: Request, res: Response) => {
     }
 
     res.status(200).json(ticket);
+};
+
+export const getTicketsStatus = (req: Request, res: Response) => {
+    const status = req.params.status;
+
+    const validStatuses = ["open", "resolved"];
+    if (!validStatuses.includes(status)) {
+        return res.status(400).json({ message: "Invalid status" });
+    }
+
+    const tickets = getTicketsByStatus(status);
+    res.status(200).json(tickets);
 };

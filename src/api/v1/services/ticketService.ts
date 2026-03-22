@@ -8,3 +8,7 @@ export const getAllTickets = (): Ticket[] => {
 export const getTicketById = (id: number) => {
     return ticketData.find((ticket) => ticket.id === id);
 };
+
+export const getTicketsByStatus = (status: string) => {
+    return ticketData.filter(ticket => ticket.status === status);
+};
