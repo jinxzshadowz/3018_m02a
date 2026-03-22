@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { getTickets } from "../controllers/ticketController";
+import { getTickets, getTicket } from "../controllers/ticketController";
 
 const router = Router();
 
 router.get("/", getTickets);
+router.get("/:id", getTicket);
 
 export default router;
