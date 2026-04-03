@@ -3,7 +3,8 @@ import {
     getAllTickets,
     getTicketById,
     getTicketsByStatus,
-    getTicketsByPriority
+    getTicketsByPriority,
+    getTicketsByAssignee
 } from "../services/ticketService";
 
 export const getTickets = (req: Request, res: Response) => {
@@ -44,4 +45,15 @@ export const getTicketsPriority = (req: Request, res: Response) => {
 
   const tickets = getTicketsByPriority(priority);
   res.status(200).json(tickets);
+};
+
+export const getTicketsAssignee = (req: Request, res: Response) => {
+    const assignee = req.params.assignee;
+
+    if (!assignee) {
+        return res.status(400).json({ message: "Assignee is required" });
+    }
+
+    const tickets = getTicketsByAssignee(assignee);
+    res.status(200).json(tickets);
 };

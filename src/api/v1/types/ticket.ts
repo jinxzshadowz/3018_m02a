@@ -5,4 +5,5 @@ export interface Ticket {
     priority: "low" | "medium" | "high" | "critical";
     status: "open" | "resolved";
     createdAt: string;
+    assignee: string;
 }

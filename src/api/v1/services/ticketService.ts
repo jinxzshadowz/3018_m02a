@@ -16,3 +16,7 @@ export const getTicketsByStatus = (status: string) => {
 export const getTicketsByPriority = (priority: string) => {
     return ticketData.filter(ticket => ticket.priority === priority);
 };
+
+export const getTicketsByAssignee = (assignee: string) => {
+    return ticketData.filter(ticket => ticket.assignee === assignee);
+};
