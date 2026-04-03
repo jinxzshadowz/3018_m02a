@@ -16,6 +16,11 @@ export const getTickets = (req: Request, res: Response) => {
 
 export const getTicket = (req: Request, res: Response) => {
     const id = Number(req.params.id);
+
+    if (isNaN(id) || id <= 0) {
+        return res.status(400).json({ message: "Invalid ticket ID" });
+    }
+
     const ticket = getTicketById(id);
 
     if (!ticket) {
