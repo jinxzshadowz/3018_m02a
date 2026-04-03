@@ -20,3 +20,8 @@ export const getTicketsByPriority = (priority: string) => {
 export const getTicketsByAssignee = (assignee: string) => {
     return ticketData.filter(ticket => ticket.assignee === assignee);
 };
+
+export const createTicket = (ticket: Ticket) => {
+    ticketData.push(ticket);
+    return ticket;
+};

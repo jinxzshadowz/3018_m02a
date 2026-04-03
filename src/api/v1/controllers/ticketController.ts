@@ -6,6 +6,8 @@ import {
     getTicketsByPriority,
     getTicketsByAssignee
 } from "../services/ticketService";
+import { createTicket } from "../services/ticketService";
+import { Ticket } from "../types/ticket";
 
 export const getTickets = (req: Request, res: Response) => {
     const tickets = getAllTickets();
@@ -56,4 +58,25 @@ export const getTicketsAssignee = (req: Request, res: Response) => {
 
     const tickets = getTicketsByAssignee(assignee);
     res.status(200).json(tickets);
+};
+
+export const createNewTicket = (req: Request, res: Response) => {
+    const { id,title, description, status, priority, assignee } = req.body;
+
+    if (!id || !title || !description || !status || !priority || !assignee) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const newTicket: Ticket = {
+        id,
+        title,
+        description,
+        status,
+        priority,
+        assignee,
+        createdAt: new Date().toISOString(),
+    };
+
+    const created = createTicket(newTicket);
+    res.status(201).json(created);
 };
