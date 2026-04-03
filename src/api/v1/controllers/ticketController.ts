@@ -72,6 +72,11 @@ export const createNewTicket = (req: Request, res: Response) => {
         return res.status(400).json({ message: "All fields are required" });
     }
 
+    const existing = getTicketById(id);
+    if (existing) {
+        return res.status(400).json({ message: "Ticket ID already exists" });
+    }
+
     const newTicket: Ticket = {
         id,
         title,
