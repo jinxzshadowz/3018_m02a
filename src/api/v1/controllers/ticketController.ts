@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import { 
     getAllTickets,
     getTicketById,
-    getTicketsByStatus
+    getTicketsByStatus,
+    getTicketsByPriority
 } from "../services/ticketService";
 
 export const getTickets = (req: Request, res: Response) => {
@@ -31,4 +32,16 @@ export const getTicketsStatus = (req: Request, res: Response) => {
 
     const tickets = getTicketsByStatus(status);
     res.status(200).json(tickets);
+};
+
+export const getTicketsPriority = (req: Request, res: Response) => {
+  const priority = req.params.priority;
+
+  const validPriorities = ["low", "medium", "high", "critical"];
+  if (!validPriorities.includes(priority)) {
+    return res.status(400).json({ message: "Invalid priority" });
+  }
+
+  const tickets = getTicketsByPriority(priority);
+  res.status(200).json(tickets);
 };

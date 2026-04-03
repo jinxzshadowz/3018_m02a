@@ -12,3 +12,7 @@ export const getTicketById = (id: number) => {
 export const getTicketsByStatus = (status: string) => {
     return ticketData.filter(ticket => ticket.status === status);
 };
+
+export const getTicketsByPriority = (priority: string) => {
+    return ticketData.filter(ticket => ticket.priority === priority);
+};
